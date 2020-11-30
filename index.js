@@ -209,7 +209,7 @@
         },
         options: {
           iconLayout: 'default#image',
-          iconImageHref: 'https://cdn.jsdelivr.net/gh/oprotono/champion@main/redpointicon.svg',
+          iconImageHref: 'https://uploads-ssl.webflow.com/5f96b44fab2f71609f95ae6a/5fc4d9e24a77e5635007e66e_redpointicon.svg',
           iconImageSize: [30, 30],
           iconImageOffset: [-12, -38]
         },
