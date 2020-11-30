@@ -209,7 +209,7 @@
         },
         options: {
           iconLayout: 'default#image',
-          iconImageHref: 'mapPointIcon.svg',
+          iconImageHref: 'https://cdn.jsdelivr.net/gh/oprotono/champion@main/mapPointIcon.svg',
           iconImageSize: [30, 30],
           iconImageOffset: [-12, -38]
         },
