@@ -14,6 +14,14 @@ body {
   height: 980px;
 }
 
+.map-baloon {
+  max-width: 250px;
+}
+
+.suggestions-wrapper {
+  max-width: 425px;
+}
+
 .block-hidden {
   display: none !important;
 }
@@ -107,6 +115,7 @@ body {
 .info-card__block {
   position: relative;
   margin-bottom: 30px;
+  list-style-type: none;
   cursor: pointer;
 }
 
@@ -122,7 +131,7 @@ body {
 
 .info-card__block:hover {
   transition: .3s all;
-  color: grey;
+  opacity: .8;
 }
 
 .info-card__name {
@@ -132,10 +141,23 @@ body {
   line-height: 158%;
 }
 
+.info-card__point-type,
+.info-card__street,
+.info-card__city,
+.info-card__phone {
+  margin-bottom: 5px;
+}
+
+.info-card__phone a:hover,
+.info-card__site a:hover {
+  color: #F01F26;
+}
+
 .info-card__line {
   margin-top: 57px;
   margin-bottom: 32px;
-  width: 100%;
+  margin-left: 40px;
+  width: 81%;
   height: 1px;
   background: #D8DDE1;
 }
@@ -148,7 +170,6 @@ body {
   text-transform: uppercase;
 }
 
-.info-card__button,
 .filter-card__button {
   width: 425px;
   height: 64px;
@@ -166,10 +187,32 @@ body {
   cursor: pointer;
 }
 
-.info-card__button:hover,
 .filter-card__button:hover {
   background: #F01F26;
   opacity: .7;
+}
+
+.info-card__button {
+  width: 425px;
+  height: 64px;
+  padding: 10px 20px;
+  transition: .4s all;
+  background: transparent;
+  border: 1px solid #F01F26;
+  color: #F01F26;
+  font-family: "Magistral", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  text-transform: uppercase;
+  outline: none;
+  cursor: pointer;
+}
+
+.info-card__button:hover {
+  background: #F01F26;
+  color: #FFFFFF;
 }
 
 /* Фильтры */
@@ -263,16 +306,37 @@ body {
     max-width: 400px;
     right: 0;
     top: 0;
-    padding: 40px 30px 20px;
+    left: 0;
+    padding: 40px 30px 20px 0;;
+  }
+
+  .info-card__wrap {
+    height: 370px;
+    padding-left: 40px;
   }
 
   .info-card__header {
     font-size: 20px;
     margin-bottom: 14px;
+    padding-left: 40px;
   }
 
   .info-card__block {
     margin-bottom: 10px;
+  }
+
+  .info-card__block-active::after {
+    left: -45px;
+  }
+
+  .info-card__name,
+  .info-card__point-type,
+  .info-card__street,
+  .info-card__city,
+  .info-card__phone,
+  .info-card__site {
+    font-size: 14px;
+    margin-bottom: 3px;
   }
 
   .info-card__line {
@@ -282,21 +346,133 @@ body {
   .info-card__footer {
     font-size: 14px;
     margin-bottom: 10px;
+    padding-left: 40px;
   }
 
   .info-card__button {
     width: 290px;
     margin: 0 auto;
   }
-}
 
-@media screen and (max-width: 900px) {
-  .info-card {
-    max-width: 320px;
-    left: 0;
+  .info-card__header:after {
+    height: 0;
+  }
+
+  .info-card__button-wrap {
+    margin: 20px 0 10px;
+    display: flex;
+    justify-content: center;
   }
 
   .info-card__button {
-    width: 260px;
+    width: 180px;
+    height: 25px;
+    padding: 5px 0;
+    font-size: 14px;
+  }
+
+  .filter-card {
+    max-width: 400px;
+    right: 0;
+    top: 0;
+    left: 0;
+    padding: 40px 20px;
+  }
+
+  .filter-card__header {
+    font-size: 20px;
+    margin-bottom: 50px;
+    padding-left: 0;
+  }
+
+  .filter-card__input-wrap {
+    height: 50px;
+  }
+
+  .filter-card__list-item {
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+
+  #filter-card-list {
+    margin-bottom: 70px;
+  }
+
+  .filter-card__button {
+    width: 240px;
+    height: 40px;
+    font-size: 16px;
+    text-transform: initial;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .info-card,
+  .filter-card {
+    max-width: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  .filter-card {
+    padding: 30px 20px 10px;
+  }
+
+  .info-card__wrap {
+    height: 200px;
+  }
+
+  .info-card__footer {
+    text-transform: initial;
+  }
+
+  .info-card__button-wrap {
+    margin: 10px 0 0;
+  }
+
+  .info-card__button {
+    width: 150px;
+    height: 16px;
+    padding: 5px 5px 10px;
+    font-size: 14px;
+    margin-left: 40px;
+  }
+
+  #main-container-map {
+    padding-top: 400px;
+    height: 1200px;
+    box-sizing: border-box;
+  }
+
+  .filter-card__header {
+    margin-bottom: 20px;
+  }
+
+  .filter-card__list-item {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .filter-card__input-wrap {
+    height: 40px;
+  }
+
+  #filter-card-list {
+    margin-bottom: 20px;
+  }
+
+  .filter-card__check-icon-wrap {
+    width: 21px;
+    height: 21px;
+  }
+
+  .suggestions-wrapper {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #main-container-map {
+    padding-top: 410px;
   }
 }
